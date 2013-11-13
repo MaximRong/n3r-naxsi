@@ -13,10 +13,21 @@ AOP平台试运行Naxsi的白名单和对应说明 :
 
 
 <b>规则 1015 : </b>
+<pre>
 # total_count:1 (50.0%), peer_count:1 (100.0%) | , in stuff ","逗号规则，仅仅针对url为/aop/aopservlet并且post请求参数为msg
 BasicRule wl:1015 "mz:$URL:/aop/aopservlet|$BODY_VAR:msg";
 # total_count:305 (38.03%), peer_count:15 (88.24%) | , in stuff ","逗号规则，仅仅针对url为/aop/aopservlet并且get请求参数为msg
 BasicRule wl:1015 "mz:$URL:/aop/aopservlet|$ARGS_VAR:msg";
+# 最近一次统计发现有超过参数为msg的url中含有引号
+BasicRule wl:1001 "mz:$URL:/aop/aopservlet|ARGS"; 
+
+#exemple (from exlog) : '{appkey:mall.sub,apptx:131106000001238410,method:ecaop.trades.query.comm.snres.chg,msg:{"channelId":"34a2030",
+"channelType":"1030100","city":"340","district":"340336","operatorId":"A0005626","province":"34","resourcesInfo":[{"acceptChannelTag":"
+1","certNum":"21312312312312","certType":"08","contactNum":"","custName":"","developPersonTag":"0","keyChangeTag":"0","occupiedFlag":"3
+","occupiedTime":"20591231235959","oldKey":"3912032203318256","oldResourcesCode":"18651844616","preOrderTag":"1","proKey":"391203220331
+8256","proKeyMode":"1","recomPersonId":"A0005626","remark":"","resourcesCode":"18651880194","resourcesType":"02","snChangeTag":"1"}]},t
+imestamp:2013-11-06'
+</pre>
 
 # total_count:1 (50.0%), peer_count:1 (100.0%) | double quote """ 引号规则，仅仅针对url为/aop/aopservlet并且post请求参数为msg
 BasicRule wl:1001 "mz:$URL:/aop/aopservlet|$BODY_VAR:msg";
