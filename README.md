@@ -10,8 +10,9 @@ Naxsi 是什么?
 
 AOP平台试运行Naxsi的白名单和对应说明 :
 -----------------------------------------
-<pre>
-#### Optimized Rules Suggestion ####
+
+
+<b>规则 1015 : </b>
 # total_count:1 (50.0%), peer_count:1 (100.0%) | , in stuff ","逗号规则，仅仅针对url为/aop/aopservlet并且post请求参数为msg
 BasicRule wl:1015 "mz:$URL:/aop/aopservlet|$BODY_VAR:msg";
 # total_count:305 (38.03%), peer_count:15 (88.24%) | , in stuff ","逗号规则，仅仅针对url为/aop/aopservlet并且get请求参数为msg
@@ -41,6 +42,11 @@ BasicRule wl:1005 "mz:$URL:/aop/aopservlet|$BODY_VAR:msg";
 
 # total_count:2 (0.25%), peer_count:2 (11.76%) | http:// scheme "http://" 含有字符串http://， 仅仅针对url为/aop/aopservlet并且get请求参数为msg
 #BasicRule wl:1100 "mz:$URL:/aop/aopservlet|$ARGS_VAR:msg";
+
+
+
+
+
 
 # total_count:12 (1.36%), peer_count:2 (9.52%) | ], possible js 含有字符串"]",  仅仅针对url为/aop/aopservlet并且get请求参数为msg
 #BasicRule wl:1311 "mz:$URL:/aop/aopservlet|$ARGS_VAR:msg";
@@ -72,6 +78,5 @@ BasicRule wl:1310 "mz:$URL:/aop/aopservlet|ARGS";
 
 # total_count:2 (0.21%), peer_count:1 (20.0%) | double quote
 BasicRule wl:1001 "mz:$URL:/aop/aopservlet|ARGS";
-</pre>
   
   
