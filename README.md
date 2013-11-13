@@ -54,14 +54,14 @@ imestamp:2013-11-06'
 BasicRule wl:1005 "mz:$URL:/aop/aopservlet|$ARGS_VAR:msg";
 # total_count:40 (4.99%), peer_count:1 (5.88%) | mysql keyword (|) 管道符规则，仅仅针对url为/aop/aopservlet并且post请求参数为msg
 BasicRule wl:1005 "mz:$URL:/aop/aopservlet|$BODY_VAR:msg";
-<pre>
+</pre>
 
 <b>规则 1009 (=) 等号规则: </b>
 <pre>
 # total_count:40 (4.99%), peer_count:1 (5.88%) | equal in var, probable sql/xss "=" 等号规则，仅仅针对url为/aop/aopservlet并且post请求参数为sign
-#BasicRule wl:1009 "mz:$URL:/aop/aopservlet|$BODY_VAR:sign";
+BasicRule wl:1009 "mz:$URL:/aop/aopservlet|$BODY_VAR:sign";
 # total_count:2 (0.25%), peer_count:2 (11.76%) | equal in var, probable sql/xss "=" 等号规则，仅仅针对url为/aop/aopservlet并且get请求参数为msg
-#BasicRule wl:1009 "mz:$URL:/aop/aopservlet|$ARGS_VAR:msg";
+BasicRule wl:1009 "mz:$URL:/aop/aopservlet|$ARGS_VAR:msg";
 
 #exemple (from exlog) : 'gSZd8eWsqAh/CENgrdGTaw=='
 
@@ -77,7 +77,7 @@ eTag":"0"}]}'
 <b>规则 1402 导航规则: </b>
 <pre>
 # total_count:60 (7.48%), peer_count:3 (17.65%) | Content is neither mulipart/x-www-form.. 导航规则，内容不是mulipart/x-www-form
-#BasicRule wl:1402 "mz:$URL:/aop/aopservlet|$HEADERS_VAR:content-type";
+BasicRule wl:1402 "mz:$URL:/aop/aopservlet|$HEADERS_VAR:content-type";
 
 #exemple (from exlog) : 'text/plain'
 </pre>
@@ -86,42 +86,106 @@ eTag":"0"}]}'
 <b>规则 1100 含有字符串http://: </b>
 <pre>
 # total_count:2 (0.25%), peer_count:2 (11.76%) | http:// scheme "http://" 含有字符串http://， 仅仅针对url为/aop/aopservlet并且get请求参数为msg
-#BasicRule wl:1100 "mz:$URL:/aop/aopservlet|$ARGS_VAR:msg";
+BasicRule wl:1100 "mz:$URL:/aop/aopservlet|$ARGS_VAR:msg";
+</pre>
 
 
-
-
-
-
+<b>规则 1311 含有字符串"]": </b>
+<pre>
 # total_count:12 (1.36%), peer_count:2 (9.52%) | ], possible js 含有字符串"]",  仅仅针对url为/aop/aopservlet并且get请求参数为msg
-#BasicRule wl:1311 "mz:$URL:/aop/aopservlet|$ARGS_VAR:msg";
+BasicRule wl:1311 "mz:$URL:/aop/aopservlet|$ARGS_VAR:msg";
 # total_count:1 (0.12%), peer_count:1 (5.88%) | ], possible js ] 含有字符串"]",  仅仅针对url为/aop/aopservlet并且post请求参数为msg
-#BasicRule wl:1311 "mz:$URL:/aop/aopservlet|$BODY_VAR:msg";
+BasicRule wl:1311 "mz:$URL:/aop/aopservlet|$BODY_VAR:msg";
+# total_count:1 (0.12%), peer_count:1 (5.88%) | ], possible js ] 含有字符串"]",  针对所有参数
+BasicRule wl:1311 "mz:$URL:/aop/aopservlet|ARGS";
 
+#exemple (from exlog) : '{"channelId":"34a0513","channelType":"1010300","city":"340","operatorId":"A0000LY0","province":"34","resources
+Info":[{"contactNum":"","custName":"","keyChangeTag":"0","occupiedFlag":"1","occupiedTime":"20131112182431","proKey":"2412070903325466"
+,"proKeyMode":"1","remark":"","resourcesCode":"18610035192","resourcesType":"02","snChangeTag":"0"}]}'
+
+#exemple (from exlog) : '{appkey:mall.sub,apptx:131106000001238410,method:ecaop.trades.query.comm.snres.chg,msg:{"channelId":"34a2030",
+"channelType":"1030100","city":"340","district":"340336","operatorId":"A0005626","province":"34","resourcesInfo":[{"acceptChannelTag":"
+1","certNum":"21312312312312","certType":"08","contactNum":"","custName":"","developPersonTag":"0","keyChangeTag":"0","occupiedFlag":"3
+","occupiedTime":"20591231235959","oldKey":"3912032203318256","oldResourcesCode":"18651844616","preOrderTag":"1","proKey":"391203220331
+8256","proKeyMode":"1","recomPersonId":"A0005626","remark":"","resourcesCode":"18651880194","resourcesType":"02","snChangeTag":"1"}]},t
+imestamp:2013-11-06'
+</pre>
+
+
+<b>规则 1310 含有字符串"[": </b>
+<pre>
 # total_count:12 (1.36%), peer_count:2 (9.52%) | [, possible js 含有字符串"[",  仅仅针对url为/aop/aopservlet并且get请求参数为msg
 BasicRule wl:1310 "mz:$URL:/aop/aopservlet|$ARGS_VAR:msg";
 # total_count:1 (0.12%), peer_count:1 (5.88%) | [, possible js 含有字符串"[",  仅仅针对url为/aop/aopservlet并且post请求参数为msg
 BasicRule wl:1310 "mz:$URL:/aop/aopservlet|$BODY_VAR:msg";
+# total_count:2 (0.21%), peer_count:1 (20.0%) | [, possible js
+BasicRule wl:1310 "mz:$URL:/aop/aopservlet|ARGS";
 
+#exemple (from exlog) : '{appkey:mall.sub,apptx:131106000001238410,method:ecaop.trades.query.comm.snres.chg,msg:{"channelId":"34a2030",
+"channelType":"1030100","city":"340","district":"340336","operatorId":"A0005626","province":"34","resourcesInfo":[{"acceptChannelTag":"
+1","certNum":"21312312312312","certType":"08","contactNum":"","custName":"","developPersonTag":"0","keyChangeTag":"0","occupiedFlag":"3
+","occupiedTime":"20591231235959","oldKey":"3912032203318256","oldResourcesCode":"18651844616","preOrderTag":"1","proKey":"391203220331
+8256","proKeyMode":"1","recomPersonId":"A0005626","remark":"","resourcesCode":"18651880194","resourcesType":"02","snChangeTag":"1"}]},t
+imestamp:2013-11-06'
+</pre>
+
+
+<b>规则 1016 (#) 井号规则: </b>
+<pre>
 # total_count:4 (0.45%), peer_count:2 (9.52%) | mysql comment (#) 井号规则，仅仅针对url为/aop/aopservlet并且post请求参数为msg
 BasicRule wl:1016 "mz:$URL:/aop/aopservlet|$BODY_VAR:msg";
+</pre>
+
+<b>规则 1008 (#) 井号规则: </b>
+<pre>
 # total_count:1 (100.0%), peer_count:1 (100.0%) | ; in stuf 分号规则，仅仅针对url为/aop/aopservlet并且post请求参数为msg
 BasicRule wl:1008 "mz:$URL:/aop/aopservlet|$BODY_VAR:msg";
+</pre>
 
-BasicRule wl:1011 "mz:$URL:/aop/aopservlet|$BODY_VAR:msg";
+
+
+<b>规则 1315 rx:%[2|3].规则 (double encoding): </b>
+<pre>
 BasicRule wl:1315 "mz:$URL:/aop/aopservlet|$BODY_VAR:msg";
-BasicRule wl:1002 "mz:$URL:/aop/aopservlet|$BODY_VAR:msg";
+</pre>
 
+<b>规则 1002 (0x) 0x规则: </b>
+<pre>
+BasicRule wl:1002 "mz:$URL:/aop/aopservlet|$BODY_VAR:msg";
+</pre>
+
+
+<b>规则 1010 (() 左括号规则: </b>
+<pre>
 # total_count:32 (3.29%), peer_count:1 (20.0%) | parenthesis, probable sql/xss
 BasicRule wl:1010 "mz:$URL:/aop/aopservlet|$BODY_VAR:msg";
 
+#exemple (from exlog) : '{"accessMode":"","accessType":"01","addressCode":"182746274","areaCode":"025","channelId":"34a0513","channelTy
+pe":"1010300","city":"340","exchCode":"180008295","installAddress":"南京市高淳区淳溪镇淳南路109号玲珑湾小区(共享)(KDXQ)3栋3单元","opera
+torId":"A0000LY0","productCode":["34000021"],"province":"34","queryMode":"0","serviceCode":"138","speedLevel":"4"}'
+</pre>
+
+<b>规则 1011 ()) 右括号规则: </b>
+<pre>
+BasicRule wl:1011 "mz:$URL:/aop/aopservlet|$BODY_VAR:msg";
+
+#exemple (from exlog) : '{"accessMode":"","accessType":"01","addressCode":"182746274","areaCode":"025","channelId":"34a0513","channelTy
+pe":"1010300","city":"340","exchCode":"180008295","installAddress":"南京市高淳区淳溪镇淳南路109号玲珑湾小区(共享)(KDXQ)3栋3单元","opera
+torId":"A0000LY0","productCode":["34000021"],"province":"34","queryMode":"0","serviceCode":"138","speedLevel":"4"}'
+</pre>
+
+<b>规则 1205 (\\) 双斜杠规则: </b>
+<pre>
 # total_count:20 (2.06%), peer_count:1 (20.0%) | backslash
 BasicRule wl:1205 "mz:$URL:/aop/aopservlet|$BODY_VAR:msg";
 
-# total_count:2 (0.21%), peer_count:1 (20.0%) | , in stuff
-BasicRule wl:1310 "mz:$URL:/aop/aopservlet|ARGS";
-
-# total_count:2 (0.21%), peer_count:1 (20.0%) | double quote
-BasicRule wl:1001 "mz:$URL:/aop/aopservlet|ARGS";
+#exemple (from exlog) : '{"userInfo":[{"serType":"2","payInfo":{"payType":"10"},"userType":"1","bipType":"1","is3G":"1","packageTag":"0
+","firstMonBillMode":"01","userPwd":"900046","product":[{"productId":"99104722","productMode":"1"}],"activityInfo":[{"actPlanId":"20120
+412112233000006"}]}],"operatorId":"Y32837","province":"31","city":"310","district":"312524","channelId":"31a0130","channelType":"101030
+0","ordersId":"000011000","numId":[{"serialNumber":"18601623097","proKey":"EAOP"}],"customerInfo":[{"authTag":"0","realNameType":"0","c
+ustType":"0","newCustomerInfo":[{"custType":"01","certType":"04","certNum":"1234345654","certAdress":"上海市徐汇区钦江路333号","custome
+rName":"留着","certExpireDate":"20151030","contactPerson":"留着","contactPhone":"24545667768\t","contactAddress":"上海"}]}],"acctInfo":
+[{"createOrExtendsAcct":"0","accountPayType":"10"}],"recomPersonId":"3101568013","recomPersonName":"wewerwer1234234"} '
+</pre>
   
   
