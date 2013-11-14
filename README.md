@@ -8,6 +8,35 @@ Naxsi 是什么?
   Naxsi的github地址. [https://github.com/nbs-system/naxsi](https://github.com/nbs-system/naxsi)
 
 
+使用Naxsi官方提供的nx_util.py生成白名单脚本?
+------------------------------------------------
+<pre>
+  python nx_util.py -l error.log -o -c /Users/bingoohuang/Downloads/naxsi-0.52/nx_util/nx_util.conf -p 1
+</pre>
+
+解决脚本输出中文乱码问题
+----------------------------
+
+<b>nx_util.py</b>
+<pre>
+  #1 在页面头引入import codecs #用于提供特殊的codecs.BOM_UTF8
+  
+  #2 在122行将print r 替换成 print r.replace(codecs.BOM_UTF8, '').decode('utf-8')
+  #第一个replace试将某些特殊字符(比如IDE或者UE生成的占位字符替换) decode是为了用中文输出
+</pre>
+
+<b>nx_imports.py</b>
+<pre>
+  #1 在页面头引入 import os  和 from urllib import unquote
+  # 用于输出和解析url
+  
+  #2 在486行(line = line.rstrip('\n'))后增加 line = unquote(line).decode('utf-8')
+  # 用于解析log文件后转码
+  
+  #注意： python特殊注重缩进格式，有些报错很可能是空格和tab使用不规范造成的/
+</pre>
+
+
 AOP平台试运行Naxsi的白名单和对应说明 :
 -----------------------------------------
 
