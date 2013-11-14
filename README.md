@@ -27,6 +27,7 @@ Naxsi 是什么?
 
 <pre>
 <code>
+```python
 import urlparse
 import string
 import itertools
@@ -553,7 +554,7 @@ class NxInject():
                 discard += 1
         return [success, discard, bad_line, self.fragmented_lines, self.reunited_lines]
 
-
+```
 </code>
 </pre>
 <b>nx_imports.py</b>
