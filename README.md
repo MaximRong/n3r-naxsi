@@ -25,6 +25,11 @@ Naxsi 是什么?
   #第一个replace试将某些特殊字符(比如IDE或者UE生成的占位字符替换) decode是为了用中文输出
 </pre>
 
+<pre>
+<code>
+class A
+</code>
+</pre>
 <b>nx_imports.py</b>
 <pre>
   #1 在页面头引入 import os  和 from urllib import unquote
