@@ -751,6 +751,8 @@ BasicRule wl:1005 "mz:$URL:/aop/aopservlet|$BODY_VAR:msg";
 BasicRule wl:1009 "mz:$URL:/aop/aopservlet|$BODY_VAR:sign";
 # total_count:2 (0.25%), peer_count:2 (11.76%) | equal in var, probable sql/xss "=" 等号规则，仅仅针对url为/aop/aopservlet并且get请求参数为msg
 BasicRule wl:1009 "mz:$URL:/aop/aopservlet|$ARGS_VAR:msg";
+# total_count:7 (3.47%), peer_count:2 (66.67%) | equal in var, probable sql/xss
+BasicRule wl:1009 "mz:$URL:/aop/aopservlet|$BODY_VAR:msg";
 
 #exemple (from exlog) : 'gSZd8eWsqAh/CENgrdGTaw=='
 
@@ -759,6 +761,9 @@ ince":"11","resourcesInfo":[{"acceptChannelTag":"1","certNum":"QTY9E32jGaU1ye4zK
 stName":"测试","developPersonTag":"0","keyChangeTag":"0","occupiedFlag":"2","occupiedTime":"20131107230000","preOrderTag":"1","proKey":
 "1213041703423756","proKeyMode":"1","recomPersonId":"chengjy10","remark":"","resourcesCode":"15652221543","resourcesType":"02","snChang
 eTag":"0"}]}'
+
+#exemple (from exlog) : '{"certNum":"wXUMEHP/94PFKEuk46nJ7g==","certType":"09","checkType":"0","city":"340","operatorId":"A0000LY0","pr
+ovince":"34","serType":"1"}'
 </pre>
 
 
@@ -841,6 +846,9 @@ BasicRule wl:1315 "mz:$URL:/aop/aopservlet|$BODY_VAR:msg";
 <b>规则 1002 (0x) 0x规则: </b>
 <pre>
 BasicRule wl:1002 "mz:$URL:/aop/aopservlet|$BODY_VAR:msg";
+
+#exemple (from exlog) : '{"certNum":"dR0xnyhFTU8OqYBC5JwdoQ==","certType":"04","checkType":"0","city":"340","operatorId":"A0000LY0","pr
+ovince":"34","serType":"1"}'
 </pre>
 
 
