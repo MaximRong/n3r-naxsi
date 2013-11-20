@@ -40,21 +40,22 @@ import sys
 import logging
 # 头文件引用
 import codecs
+```
 
-
-	if options.output_whitelist is not False:
-		wl = NxWhitelistExtractor(sql, config.core_rules, pages_hit=options.wl_plimit, rules_hit=options.wl_rlimit)
-		wl.gen_basic_rules()
-		base_rules, opti_rules = wl.opti_rules_back()
-		opti_rules.sort(lambda a,b: (b['hratio']+(b['pratio']*3)) < (a['hratio']+(a['pratio']*3)))
-		r = wl.format_rules_output(wl.final_rules)
-	# 增加去掉特殊字符以及转码的decode
-        print r.replace(codecs.BOM_UTF8, '').decode('utf-8')
-	if options.dst_file is not None:
-		logging.info("Outputing HTML report to ["+options.dst_file+"]")
-		report = NxReportGen(options.dst_file, config.data_dir, sql)
-		report.write()
-		logging.info("Finished HTML report generation")
+```python
+if options.output_whitelist is not False:
+	wl = NxWhitelistExtractor(sql, config.core_rules, pages_hit=options.wl_plimit, rules_hit=options.wl_rlimit)
+	wl.gen_basic_rules()
+	base_rules, opti_rules = wl.opti_rules_back()
+	opti_rules.sort(lambda a,b: (b['hratio']+(b['pratio']*3)) < (a['hratio']+(a['pratio']*3)))
+	r = wl.format_rules_output(wl.final_rules)
+# 增加去掉特殊字符以及转码的decode
+print r.replace(codecs.BOM_UTF8, '').decode('utf-8')
+if options.dst_file is not None:
+	logging.info("Outputing HTML report to ["+options.dst_file+"]")
+	report = NxReportGen(options.dst_file, config.data_dir, sql)
+	report.write()
+	logging.info("Finished HTML report generation")
 ```
 
 <b>nx_imports.py</b>
@@ -85,8 +86,9 @@ import re
 import os
 # 头文件引入
 from urllib import unquote
+```
 
-
+```python
 # returns an array of [success, discarded, bad_line] events counters
 def acquire_nxline(self, line, date_format='%Y/%m/%d %H:%M:%S',
 	       sod_marker=[' [error] ', ' [debug] '], eod_marker=[', client: ', '']):
