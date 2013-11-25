@@ -248,6 +248,16 @@ imestamp:2013-11-06'
 <pre>
 # total_count:4 (0.45%), peer_count:2 (9.52%) | mysql comment (#) 井号规则，仅仅针对url为/aop/aopservlet并且post请求参数为msg
 BasicRule wl:1016 "mz:$URL:/aop/aopservlet|$BODY_VAR:msg";
+
+#exemple (from exlog) : '{"accessType":"01","channelId":"A0199","channelType":"1030300","city":"190","contactAddress":"","contactPerson
+":"测试","contactPhone":"18500093520","district":"A100","newUserInfo":{"accessMode":"1","accountPayType":"10","addressCode":"100430273"
+,"addressName":"","certAddress":"河北省晋州市小樵镇七给村友谊东路58号","certExpireDate":"20500101","certName":"宿烨","certNum":"1301831
+98609041008","certType":"02","constructionTime":"0","createOrExtendsAcct":"0","debutyAreaCode":"","debutySerialNumber":"","exchCode":"3
+070","exchInfo":[{"key":"CITY_CODE","value":"AC00"},{"key":"SERVICE_CODE","value":"35101"}],"hopeDate":"2013-11-20","installAddress":"
+古交武家庄2#2-2","productInfo":[{"productId":"1900005","productMode":"1"}],"serviceClassCode":"0000","speedLevel":"4M"},"operatorId":"T
+YZY0596","orderNo":"6197962174","orderRemarks":"支付方式：上门收费 未支付|费用项：首次预存-1380.00元；总费用-1380.00元；|发票：不打印发
+票|用户备注：","province":"19","recomPersonChannelId":"A0199","recomPersonCityCode":"190","recomPersonDistrict":"A100","recomPersonId":
+"TYZY0596","recomPersonName":"孙瑛","shareFalg":"0","userName":"","userPasswd":"123456"}'
 </pre>
 
 <b>规则 1008 (#) 井号规则: </b>
